@@ -17,7 +17,8 @@ void setup() {
 
   // Using just the path of this sketch to demonstrate,
   // but you can list any directory you like.
-  String path = "/Users/Océane/Documents/Processing/rythm/data/";
+  String path = dataPath("");
+  //PImage path; // stored in: data/;
 
 
 
@@ -36,7 +37,7 @@ void setup() {
     }
   }
   
-  for (int x = 1; x < allFiles.size()-1; x++) {
+  for (int x = 1; x < allFiles.size(); x++) {
        PImage img = loadImage(allFiles.get(x).getAbsolutePath());
        allImages.add(img);
     }
@@ -63,7 +64,7 @@ nbImages = allFiles.size();
   // to change the density of the points
   for (int y = 0; y < height-400; y += fontSize*1.20) {
     for (int x = 200; x < width-300; x += imgW) {
-       img = allImages.get(int(random(0, allImages.size()-1)));
+       img = allImages.get(int(random(0, allImages.size())));
        imgW = img.width*fontSize/img.height;
        image(img, x, y + fontSize, imgW, fontSize);
     }
